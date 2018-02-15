@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 
 import { Employee } from "../../employees/employee";
@@ -8,11 +8,12 @@ import { Employee } from "../../employees/employee";
 export class EmployeesService {
 
   //private mongoURL: string = "https://api.mongolab.com/api/1/databases/(DataBase_Name)/collections/";
-  private mongoURL: string= "https://api.mongolab.com/api/1/databases/sidswap/collection/Employees/";
+  private mongoURL: string= "https://api.mongolab.com/api/1/databases/sidswap/collection/";
   //private apiKey: string = "(API_key_name)";
   private apiKey: string="8CElfGmeiIwc5errIFY3flpWvqq_HZnc";
   //collection name means table name
   private EmployeesCollection: string="Employees";
+  private EmployeesConnectionString: string= this.mongoURL + this.EmployeesCollection + "?apiKey=" + this.apiKey
   
 
   //Full connection String of MongoDB connection
@@ -24,5 +25,8 @@ export class EmployeesService {
   // getAllEmployees(): Observable<Employee[]> {
   //     return this._http.get<Employee[]>("https://raw.githubusercontent.com/SiddhantPotghante/siddhant1/employees/empdb.json");
   // }
+  mongoSelectAll(){
+    return this._http.get(this.EmployeesConnectionString).map(res => res.json());
+  }
 
 }
