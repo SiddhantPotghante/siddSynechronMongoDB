@@ -1,0 +1,34 @@
+<!--<h1 [innerText]="title"></h1>-->
+<div class="container">
+  <h1>{{title}}</h1>
+<hr>
+<!--<h5 [innerText]="subTitle"></h5>-->
+<h5>{{subTitle}}</h5>
+
+<table class="table table-hover table-striped" *ngIf="employees.length>0;else noDataTemplate">
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Contact #</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.employeeId}}</td>
+            <td>{{employee.employeeName}}</td>
+            <td>{{employee.address}}</td>
+            <td>{{employee.city}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.phone}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<ng-template #noDataTemplate>
+    <h4>There are no employee records avaible!</h4>
+</ng-template>

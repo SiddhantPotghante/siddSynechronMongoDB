@@ -1,0 +1,38 @@
+<h1 [innerText]="pageTitle + project.projectName"></h1>
+<hr>
+<table class="table table-hover table-striped">
+    <tr>
+        <th>Event Id</th>
+        <td><span [innerText]="project.projectId"></span></td>
+    </tr>
+    <tr>
+        <th>Event Code</th>
+        <td><span [innerText]="project.projectCode"></span></td>
+    </tr>
+    <tr>
+        <th>Event Name</th>
+        <td><span [innerText]="project.projectName"></span></td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td><span [innerText]="project.description"></span></td>
+    </tr>
+    <tr>
+        <th>Strength</th>
+        <td><span [innerText]="project.strength"></span></td>
+    </tr>
+    <tr>
+        <th>Allocated Seats</th>
+        <td>
+            <div class="progress progress-striped active">
+                <div class="progress-bar" [style.width]="project.strength+'%'"></div>
+            </div>
+        </td>
+    </tr>
+    <!-- <tr>
+        <th>Logo</th>
+        <td>
+            <img [src]="event.logo" [alt]="event.eventName" [title]="event.description">
+        </td>
+    </tr> -->
+</table>
