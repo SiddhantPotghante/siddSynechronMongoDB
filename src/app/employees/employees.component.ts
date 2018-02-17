@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from "./employee";
 
 import { EmployeesService } from "../services/employees/employees.service";
+import { EmployeesServiceMongoDB } from "../services_MongoDB/employees/employees.service";
 
 @Component({
   selector: 'app-employees',
@@ -10,7 +11,8 @@ import { EmployeesService } from "../services/employees/employees.service";
 })
 export class EmployeesComponent {
 
-    constructor(private _EmployeesService: EmployeesService) {
+    constructor(private _EmployeesService: EmployeesService,
+      private _EmployeesServiceMongoDB: EmployeesServiceMongoDB) {
 
     }
 
@@ -18,6 +20,9 @@ export class EmployeesComponent {
     subTitle: string = "Core Development Team!";
 
     employees: Employee[] = [];
+
+    employees1= [];
+
   ngOnInit() {
       this._EmployeesService.getAllEmployees().subscribe(
           data => this.employees = data,
@@ -25,6 +30,16 @@ export class EmployeesComponent {
           () => console.log("Service call completed!")
       );
   }
+
+  //api call to select one
+  SelectData(){
+    this._EmployeesServiceMongoDB.mongoSelectAll().subscribe(
+      data => this.employees1 = data,
+      err => console.log(err),
+      ()=> console.log("Hiiiii")
+    )
+  }
+  
     // employees: Employee[] = [
     //     {
     //         employeeId: 2378,
