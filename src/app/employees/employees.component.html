@@ -5,7 +5,7 @@
 <!--<h5 [innerText]="subTitle"></h5>-->
 <h5>{{subTitle}}</h5>
 
-<table class="table table-hover table-striped" *ngIf="employees.length>0;else noDataTemplate">
+<!-- <table class="table table-hover table-striped" *ngIf="employees.length>0;else noDataTemplate">
     <thead>
         <tr>
             <th>Employee Id</th>
@@ -26,8 +26,60 @@
             <td>{{employee.phone}}</td>
         </tr>
     </tbody>
+</table> -->
+<table class="table table-hover table-striped" *ngIf="employees1.length>0;else noDataTemplate">
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Contact #</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees1">
+            <td>{{employee.employeeId}}</td>
+            <td>{{employee.employeeName}}</td>
+            <td>{{employee.address}}</td>
+            <td>{{employee.city}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.phone}}</td>
+        </tr>
+    </tbody>
 </table>
 </div>
+<div>
+    <label>Enter the Employee ID</label>
+    <input type="text" [(ngModel)]="SingleEmpDetailID">
+    <button (click)="SelectRecord()">Get Record</button>
+</div>
+<div>
+        <table class="table table-hover table-striped" *ngIf="SingleEmployee.length>0;else noDataTemplate">
+        <thead>
+            <tr >
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Contact #</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let SingleEmployee of SingleEmployee">
+                <td>{{SingleEmployee.employeeId}}</td>
+                <td>{{SingleEmployee.employeeName}}</td>
+                <td>{{SingleEmployee.address}}</td>
+                <td>{{SingleEmployee.city}}</td>
+                <td>{{SingleEmployee.email}}</td>
+                <td>{{SingleEmployee.phone}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 
 <ng-template #noDataTemplate>
     <h4>There are no employee records avaible!</h4>

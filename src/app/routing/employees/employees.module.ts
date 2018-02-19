@@ -8,6 +8,7 @@ import { RouterModule } from "@angular/router";
 import { EmployeesRoutingModule } from './employees-routing.module';
 import { EmployeesComponent } from "../../employees/employees.component";
 import { EmployeesService } from "../../services/employees/employees.service";
+import { EmployeesServiceMongoDB } from "../../services_MongoDB/employees/employees.service";
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { EmployeesService } from "../../services/employees/employees.service";
   ],
   exports:[EmployeesComponent],
   declarations: [EmployeesComponent],
-  providers:[EmployeesService]
+  providers:[EmployeesService,
+    EmployeesServiceMongoDB]
 })
 export class EmployeesModule { }

@@ -11,17 +11,22 @@ import { EmployeesServiceMongoDB } from "../services_MongoDB/employees/employees
 })
 export class EmployeesComponent {
 
+  SingleEmpDetailID= null;
+
     constructor(private _EmployeesService: EmployeesService,
       private _EmployeesServiceMongoDB: EmployeesServiceMongoDB) {
 
     }
 
+    
+
+
   title: string = "Synechron Employees List";
     subTitle: string = "Core Development Team!";
 
     employees: Employee[] = [];
-
-    employees1= [];
+    employees1: Employee[]=[];
+    SingleEmployee: Employee[]=[];
 
   ngOnInit() {
       this._EmployeesService.getAllEmployees().subscribe(
@@ -29,16 +34,34 @@ export class EmployeesComponent {
           err => console.log(err),
           () => console.log("Service call completed!")
       );
+
+      this._EmployeesServiceMongoDB.mongoSelectAll().subscribe(
+        data => this.employees1 = data,
+        err => console.log(err),
+        ()=> console.log("Hiiiii")
+      );
   }
 
-  //api call to select one
-  SelectData(){
-    this._EmployeesServiceMongoDB.mongoSelectAll().subscribe(
-      data => this.employees1 = data,
+
+  SelectRecord(){
+    this._EmployeesServiceMongoDB.mongoFindRecord(this.SingleEmpDetailID).subscribe(
+      data => this.SingleEmployee = data,
       err => console.log(err),
-      ()=> console.log("Hiiiii")
-    )
+      ()=> console.log("Found record with ID: "+ this.SingleEmpDetailID)
+    );
+    console.log(this.SingleEmployee);
   }
+  
+  // this.employees1 = data
+
+  //api call to select all
+  // SelectData(){
+  //   this._EmployeesServiceMongoDB.mongoSelectAll().subscribe(
+  //     data => this.employees1 = data,
+  //     err => console.log(err),
+  //     ()=> console.log("Hiiiii")
+  //   )
+  // }
   
     // employees: Employee[] = [
     //     {
