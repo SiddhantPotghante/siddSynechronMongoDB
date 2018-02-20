@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 // import { HomeRoutingModule } from "./routing/home/home-routing.module";
 import { AppRoutingModule } from "./routing/app/app-routing.module";
 import { MenuBarModule } from "./menu-bar/menu-bar.module";
+import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
 // import { AbcComponent } from './abc/abc.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddEmployeeComponent,
     // AbcComponent,
     // EmployeesComponent,
     // ProjectsComponent,

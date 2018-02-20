@@ -7,6 +7,8 @@ import { Employee } from "../../employees/employee";
 @Injectable()
 export class EmployeesServiceMongoDB {
 
+  employees=[];
+
   //private mongoURL: string = "https://api.mongolab.com/api/1/databases/(DataBase_Name)/collections/";
   private mongoURL: string= "https://api.mongolab.com/api/1/databases/sidswap/collections/";
   //private apiKey: string = "(API_key_name)";
@@ -28,7 +30,10 @@ export class EmployeesServiceMongoDB {
   // mongoSelectAll(): Observable<Employee[]>{
   //   return this._http.get<Employee[]>(this.EmployeesConnectionString);
 	// }
-	
+  
+  // mongoSelectOne(collection: string, field: string, sort: string): Observable<Employee[]> {
+  //   return this._http.get(this.EmployeesConnectionString + '?f=' + field + '&s=' + sort + '&l=1');
+  // }
 	
 	mongoSelectAll(): Observable<Employee[]>{
     return this._http.get<Employee[]>(this.EmployeesConnectionString);
