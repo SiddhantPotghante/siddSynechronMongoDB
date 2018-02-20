@@ -27,6 +27,7 @@ export class EmployeesComponent {
     employees: Employee[] = [];
     employees1: Employee[]=[];
     SingleEmployee: Employee[]=[];
+    CountOfEmployees= null;
 
   ngOnInit() {
       this._EmployeesService.getAllEmployees().subscribe(
@@ -40,11 +41,17 @@ export class EmployeesComponent {
         err => console.log(err),
         ()=> console.log("Hiiiii")
       );
+
+      this._EmployeesServiceMongoDB.mongoCountEmployee().subscribe(
+        data => this.CountOfEmployees = data,
+        err => console.log(err),
+        ()=> console.log("Count here")
+      );
   }
 
 
   SelectRecord(){
-    this._EmployeesServiceMongoDB.mongoFindRecord(this.SingleEmpDetailID).subscribe(
+    this._EmployeesServiceMongoDB.mongoFindOneEmployee(this.SingleEmpDetailID).subscribe(
       data => this.SingleEmployee = data,
       err => console.log(err),
       ()=> console.log("Found record with ID: "+ this.SingleEmpDetailID)

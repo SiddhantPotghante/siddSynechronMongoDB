@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 
 import { Employee } from "../../employees/employee";
@@ -34,8 +34,12 @@ export class EmployeesServiceMongoDB {
     return this._http.get<Employee[]>(this.EmployeesConnectionString);
 	}
 
-	mongoFindRecord(id): Observable<Employee[]>{
+	mongoFindOneEmployee(id): Observable<Employee[]>{
 		return this._http.get<Employee[]>(this.EmployeesConnectionString + '&q={"employeeId": '+ id +'}');
+  }
+  
+  mongoCountEmployee(): Observable<Employee[]>{
+		return this._http.get<Employee[]>(this.EmployeesConnectionString + '&c=true');
 	}
 
 
