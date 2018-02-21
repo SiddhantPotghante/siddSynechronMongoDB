@@ -2,7 +2,7 @@ import { Iemployee } from "./iemployee";
 
 export class Employee implements Iemployee {
     constructor(){
-        this.employeeId=0;
+        this.employeeId="";
     this.employeeName="";
     this.address="";
     this.city="";
@@ -10,7 +10,7 @@ export class Employee implements Iemployee {
     this.phone="";
     this.avatar="";
     }
-    employeeId: number;
+    employeeId: string;
     employeeName: string;
     address: string;
     city: string;

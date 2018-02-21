@@ -10,6 +10,8 @@ import { EmployeesComponent } from "../../employees/employees.component";
 import { EmployeesService } from "../../services/employees/employees.service";
 import { EmployeesServiceMongoDB } from "../../services_MongoDB/employees/employees.service";
 
+import { SearchEmployeePipe } from "../../pipes/search-employee.pipe";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,10 +19,10 @@ import { EmployeesServiceMongoDB } from "../../services_MongoDB/employees/employ
     FormsModule,
     HttpModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
   ],
   exports:[EmployeesComponent],
-  declarations: [EmployeesComponent],
+  declarations: [EmployeesComponent, SearchEmployeePipe],
   providers:[EmployeesService,
     EmployeesServiceMongoDB]
 })

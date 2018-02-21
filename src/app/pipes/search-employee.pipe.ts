@@ -1,0 +1,23 @@
+import { Pipe, PipeTransform } from '@angular/core';
+import {Employee} from '../employees/employee'
+@Pipe({
+  name: 'searchEmployee'
+})
+export class SearchEmployeePipe implements PipeTransform {
+
+  transform(items: Employee[], searchEmployee: string): any[] {
+    console.log(items)
+    if(!items) return [];
+    if(!searchEmployee) return items;
+    searchEmployee = searchEmployee.toLowerCase();
+    console.log(searchEmployee)
+return items.filter( item => {
+     // return it.employeeId==parseInt(searchEmployee);
+  return item.employeeId.includes(searchEmployee);
+      
+      
+
+    });
+   }
+
+}

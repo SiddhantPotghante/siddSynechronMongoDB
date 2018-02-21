@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { Employee } from "./employee";
+import { FormsModule } from '@angular/forms';
 
 import { EmployeesService } from "../services/employees/employees.service";
 import { EmployeesServiceMongoDB } from "../services_MongoDB/employees/employees.service";
+
+import { SearchEmployeePipe } from "../pipes/search-employee.pipe";
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.css']
 })
+@Pipe({name:"SearchEmployeePipe"})
 export class EmployeesComponent {
 
   SingleEmpDetailID= null;
