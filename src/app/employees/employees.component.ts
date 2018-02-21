@@ -29,7 +29,7 @@ export class EmployeesComponent {
     subTitle: string = "Core Development Team!";
 
     employees: Employee[] = [];
-    employees1: Employee[]=[];
+    employees1: Employee[]= [];
     SingleEmployee: Employee[]=[];
     CountOfEmployees= null;
 

@@ -9,6 +9,8 @@ import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from "../../projects/projects.component";
 import { ProjectDetailsComponent } from "../../project-details/project-details.component";
 import { ProjectsService } from "../../services/projects/projects.service";
+import { ProjectsServiceMongoDB } from "../../services_MongoDB/projects/projects.service";
+import { SearchProjectPipe } from "../../pipes/search-project.pipe";
 
 // import { EventsService } from "./services/events.service";
 
@@ -25,10 +27,12 @@ import { ProjectsService } from "../../services/projects/projects.service";
   exports:[ProjectDetailsComponent],
   declarations: [
     ProjectsComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    SearchProjectPipe
   ],
   providers:[
-    ProjectsService
+    ProjectsService,
+    ProjectsServiceMongoDB
   ]
   // providers: [EventsService]
 })

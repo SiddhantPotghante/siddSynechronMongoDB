@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { Project } from "./project";
+import { FormsModule } from '@angular/forms';
 
 import { ProjectsService } from "../services/projects/projects.service";
+import { ProjectsServiceMongoDB } from "../services_MongoDB/projects/projects.service";
+
+import { SearchProjectPipe } from "../pipes/search-project.pipe";
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
+@Pipe({name:"SearchProjectPipe"})
+
+
 export class ProjectsComponent {
-  constructor(private _ProjectsService: ProjectsService) {
+
+  SingleProDetailID=null;
+  constructor(private _ProjectsService: ProjectsService,
+    private _ProjectsServicesMongoDB: ProjectsServiceMongoDB){
     this.selectedEvent = new Project();
   }
   pageTitle: string = "Synechron Future Events List";
@@ -20,11 +30,18 @@ export class ProjectsComponent {
   }
 
   projects: Project[] = [];
+  projects1: Project[] = [];
   ngOnInit() {
       this._ProjectsService.getAllProjects().subscribe(
           data => this.projects = data,
           err => console.log(err),
           () => console.log("Service call completed!")
+      );
+
+      this._ProjectsServicesMongoDB.mongoSelectAll().subscribe(
+        data => this.projects1=data,
+        err => console.log(err),
+        () => console.log("Mongo service called Projets")
       );
   }
   // Projects: Project[] = [

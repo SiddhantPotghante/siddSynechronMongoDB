@@ -8,7 +8,7 @@ export class Employee implements Iemployee {
     this.city="";
     this.email="";
     this.phone="";
-    this.avatar="";
+    // this.avatar="";
     }
     employeeId: string;
     employeeName: string;
@@ -16,5 +16,5 @@ export class Employee implements Iemployee {
     city: string;
     email: string;
     phone: string;
-    avatar?: string;
+    // avatar?: string;
 }
