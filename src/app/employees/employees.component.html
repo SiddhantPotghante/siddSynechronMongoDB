@@ -33,9 +33,9 @@
 <div>
     <label>Enter the Employee ID</label>
     <input type="text" [(ngModel)]="SingleEmpDetailID">
-    <button (click)="SelectRecord()">Get Record</button>
+    <!-- <button (click)="SelectRecord()">Get Record</button> -->
 </div>
-<div>
+<!-- <div>
         <table class="table table-hover table-striped" *ngIf="SingleEmployee.length>0;else noDataTemplate">
         <thead>
             <tr >
@@ -58,7 +58,7 @@
             </tr>
         </tbody>
     </table>
-</div>
+</div> -->
 <table class="table table-hover table-striped" *ngIf="employees1.length>0;else noDataTemplate">
     <thead>
         <tr>

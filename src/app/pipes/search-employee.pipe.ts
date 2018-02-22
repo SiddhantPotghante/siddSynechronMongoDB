@@ -13,7 +13,6 @@ export class SearchEmployeePipe implements PipeTransform {
     console.log(searchEmployee)
 return items.filter( item => {
      // return it.employeeId==parseInt(searchEmployee);
-  // return item.employeeId.includes(searchEmployee);
       return (item.employeeId).includes(searchEmployee);
       
 

@@ -1,14 +1,16 @@
 <!--<h1 [innerText]="title"></h1>-->
 <div class="container">
-  <h1>{{title}}</h1>
+  <h1>{{pageTitle}}</h1>
 <hr>
 <!--<h5 [innerText]="subTitle"></h5>-->
-<h5>{{subTitle}}</h5>
+<h5><i>{{subTitle}}</i></h5>
 <div>
         <label>Enter the Project ID</label>
         <input type="text" [(ngModel)]="SingleProDetailID">
-        <button (click)="SelectRecord()">Get Record</button>
+        <!-- <button (click)="SelectRecord()">Get Record</button> -->
     </div>
+<br>
+<br>
 
 <table class="table table-hover table-striped">
     <thead>
@@ -24,7 +26,7 @@
         </tr> -->
         <tr>
             <th>Project Id</th>
-            <th>Project Code</th>
+            <!-- <th>Project Code</th> -->
             <th>Project Name</th>
             <th>Details here</th>
         </tr>
@@ -32,7 +34,7 @@
     <tbody>
         <tr *ngFor="let project of projects1 | searchProject:SingleProDetailID">
             <td>{{project.projectId}}</td>
-            <td>{{project.projectCode}}</td>
+            <!-- <td>{{project.projectCode}}</td> -->
             <td>{{project.projectName}}</td>
             <!-- <td>{{project.description}}</td>
             <td>{{project.startDate}}</td>

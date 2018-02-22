@@ -22,8 +22,8 @@ export class ProjectsComponent {
     private _ProjectsServicesMongoDB: ProjectsServiceMongoDB){
     this.selectedEvent = new Project();
   }
-  pageTitle: string = "Synechron Future Events List";
-  subTitle: string = "Published by Synechron Hr, Pune!";
+  pageTitle: string = "SSKP Project List";
+  subTitle: string = "confidiantial";
   selectedEvent: Project;
   onEventSelection(project: Project): void {
     this.selectedEvent = project;
