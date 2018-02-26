@@ -19,7 +19,7 @@ export class EmployeesComponent {
 
     constructor(private _EmployeesService: EmployeesService,
       private _EmployeesServiceMongoDB: EmployeesServiceMongoDB) {
-
+        this.selectedEmployee = new Employee();
     }
 
     
