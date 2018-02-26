@@ -13,7 +13,10 @@ export class SearchEmployeePipe implements PipeTransform {
     console.log(searchEmployee)
 return items.filter( item => {
      // return it.employeeId==parseInt(searchEmployee);
-      return (item.employeeId).includes(searchEmployee);
+      return ((item.employeeId.toLowerCase().includes(searchEmployee)) || 
+      (item.employeeName.toLowerCase().includes(searchEmployee)) ||
+      (item.phone.toLowerCase().includes(searchEmployee)) ||
+      (item.address.toLowerCase().includes(searchEmployee)));
       
 
     });

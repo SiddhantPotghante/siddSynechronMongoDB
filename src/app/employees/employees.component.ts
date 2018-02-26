@@ -32,6 +32,11 @@ export class EmployeesComponent {
     employees1: Employee[]= [];
     SingleEmployee: Employee[]=[];
     CountOfEmployees= null;
+    selectedEmployee: Employee;
+
+    getDetails(employee: Employee): void {
+      this.selectedEmployee = employee;
+    }
 
   ngOnInit() {
       this._EmployeesService.getAllEmployees().subscribe(

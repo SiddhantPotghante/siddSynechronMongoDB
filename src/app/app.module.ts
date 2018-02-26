@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 // import { HomeRoutingModule } from "./routing/home/home-routing.module";
 import { AppRoutingModule } from "./routing/app/app-routing.module";
 import { MenuBarModule } from "./menu-bar/menu-bar.module";
+// import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 // import { SearchProjectPipe } from './pipes/search-project.pipe';
 // import { SearchEmployeePipe } from './search-employee.pipe';
 // import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
@@ -21,6 +22,7 @@ import { MenuBarModule } from "./menu-bar/menu-bar.module";
 @NgModule({
   declarations: [
     AppComponent,
+    // EmployeeDetailsComponent,
     // SearchProjectPipe,
     // SearchEmployeePipe,
     // AddEmployeeComponent,

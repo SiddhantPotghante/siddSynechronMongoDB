@@ -29,6 +29,10 @@ export class ProjectsComponent {
     this.selectedEvent = project;
   }
 
+  getDetails(project: Project): void {
+    this.selectedEvent = project;
+  }
+
   projects: Project[] = [];
   projects1: Project[] = [];
   ngOnInit() {

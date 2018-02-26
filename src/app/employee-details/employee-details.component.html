@@ -1,34 +1,38 @@
-<h1>{{PageTitle}} {{project.projectName}}</h1>
+<h1>{{PageTitle}} {{employee.employeeName}}</h1>
 <hr>
 <table class="table table-hover table-striped">
     <tr>
-        <th>Event Id</th>
-        <td><span [innerText]="project.projectId"></span></td>
+        <th>Employee Id</th>
+        <td>{{employee.employeeId}}</td>
     </tr>
     <tr>
-        <th>Event Code</th>
-        <td><span [innerText]="project.projectCode"></span></td>
+        <th>Employee Name</th>
+        <td>{{employee.employeeName}}</td>
     </tr>
     <tr>
-        <th>Event Name</th>
-        <td><span [innerText]="project.projectName"></span></td>
+        <th>Address</th>
+        <td>{{employee.address}}</td>
     </tr>
     <tr>
-        <th>Description</th>
-        <td><span [innerText]="project.description"></span></td>
+        <th>City</th>
+        <td>{{employee.city}}</td>
     </tr>
     <tr>
-        <th>Strength</th>
-        <td><span [innerText]="project.strength"></span></td>
+        <th>Email</th>
+        <td>{{employee.email}}</td>
     </tr>
     <tr>
+        <th>Contact No</th>
+        <td>{{employee.phone}}</td>
+    </tr>
+    <!-- <tr>
         <th>Allocated Seats</th>
         <td>
             <div class="progress progress-striped active">
                 <div class="progress-bar" [style.width]="project.strength+'%'"></div>
             </div>
         </td>
-    </tr>
+    </tr> -->
     <!-- <tr>
         <th>Logo</th>
         <td>

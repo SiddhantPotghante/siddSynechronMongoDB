@@ -11,11 +11,13 @@ export class SearchProjectPipe implements PipeTransform {
     if(!items) return [];
     if(!searchProject) return items;
     searchProject = searchProject.toLowerCase();
+    
     console.log(searchProject)
 return items.filter( item => {
      // return it.employeeId==parseInt(searchEmployee);
   // return item.employeeId.includes(searchEmployee);
-      return item.projectId.includes(searchProject);
+      return ((item.projectId.includes(searchProject)) || 
+      (item.projectName.toLowerCase().includes(searchProject)));
       
 
     });
