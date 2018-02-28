@@ -1,7 +1,7 @@
 import { Component, OnInit, Pipe } from '@angular/core';
 import { Employee } from "./employee";
 import { FormsModule } from '@angular/forms';
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { EmployeesService } from "../services/employees/employees.service";
 import { EmployeesServiceMongoDB } from "../services_MongoDB/employees/employees.service";
 
@@ -18,7 +18,8 @@ export class EmployeesComponent {
   SingleEmpDetailID= null;
 
     constructor(private _EmployeesService: EmployeesService,
-      private _EmployeesServiceMongoDB: EmployeesServiceMongoDB) {
+      private _EmployeesServiceMongoDB: EmployeesServiceMongoDB,
+      private _http: HttpClient) {
         this.selectedEmployee = new Employee();
     }
 
@@ -33,19 +34,29 @@ export class EmployeesComponent {
     SingleEmployee: Employee[]=[];
     CountOfEmployees= null;
     selectedEmployee: Employee;
+    apiKey1: any;
+    apiKey: any;
 
     getDetails(employee: Employee): void {
       this.selectedEmployee = employee;
     }
 
   ngOnInit() {
+
+    this._http.get('http://localhost:8081/apikey').subscribe(data => {
+      console.log(data);
+      this.apiKey1=data;
+      this.apiKey=this.apiKey1.key;
+      alert(this.apiKey);
+    });
+
       this._EmployeesService.getAllEmployees().subscribe(
           data => this.employees = data,
           err => console.log(err),
           () => console.log("Service call completed!")
       );
 
-      this._EmployeesServiceMongoDB.mongoSelectAll().subscribe(
+      this._EmployeesServiceMongoDB.mongoSelectAll(this.apiKey).subscribe(
         data => this.employees1 = data,
         err => console.log(err),
         ()=> console.log("Hiiiii")
